@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/example/chess-cli/rag-experiment/internal/config"
-	"github.com/example/chess-cli/rag-experiment/internal/evaluation"
-	"github.com/example/chess-cli/rag-experiment/internal/indexing"
+	"github.com/carlosmeds/context-engineering-chess-lab/rag-experiment/internal/config"
+	"github.com/carlosmeds/context-engineering-chess-lab/rag-experiment/internal/evaluation"
+	"github.com/carlosmeds/context-engineering-chess-lab/rag-experiment/internal/indexing"
 	"log"
 	"os"
 	"path/filepath"

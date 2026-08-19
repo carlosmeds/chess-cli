@@ -22,13 +22,13 @@ check:
 	go vet ./...
 
 rag-index:
-	GOCACHE=/tmp/chess-cli-rag-go-cache go run ./rag-experiment/cmd/index
+	GOCACHE=/tmp/context-engineering-chess-lab-rag-go-cache go run ./rag-experiment/cmd/index
 
 rag-search:
-	GOCACHE=/tmp/chess-cli-rag-go-cache go run ./rag-experiment/cmd/search -query "$(QUERY)"
+	GOCACHE=/tmp/context-engineering-chess-lab-rag-go-cache go run ./rag-experiment/cmd/search -query "$(QUERY)"
 
 rag-eval:
-	GOCACHE=/tmp/chess-cli-rag-go-cache go run ./rag-experiment/cmd/evaluate
+	GOCACHE=/tmp/context-engineering-chess-lab-rag-go-cache go run ./rag-experiment/cmd/evaluate
 
 rag-clean:
 	find rag-experiment/data -type f ! -name .gitkeep -delete

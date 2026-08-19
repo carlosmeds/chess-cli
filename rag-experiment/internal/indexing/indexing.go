@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/example/chess-cli/rag-experiment/internal/chunking"
-	"github.com/example/chess-cli/rag-experiment/internal/config"
-	"github.com/example/chess-cli/rag-experiment/internal/embedding"
+	"github.com/carlosmeds/context-engineering-chess-lab/rag-experiment/internal/chunking"
+	"github.com/carlosmeds/context-engineering-chess-lab/rag-experiment/internal/config"
+	"github.com/carlosmeds/context-engineering-chess-lab/rag-experiment/internal/embedding"
 )
 
 type Index struct {

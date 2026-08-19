@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/example/chess-cli/internal/chess"
+	"github.com/carlosmeds/context-engineering-chess-lab/internal/chess"
 )
 
 type Runner struct {

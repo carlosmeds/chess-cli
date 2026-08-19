@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/example/chess-cli/internal/chess"
+	"github.com/carlosmeds/context-engineering-chess-lab/internal/chess"
 )
 
 type CommandKind uint8

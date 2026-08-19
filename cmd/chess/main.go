@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/example/chess-cli/internal/cli"
+	"github.com/carlosmeds/context-engineering-chess-lab/internal/cli"
 )
 
 func main() {

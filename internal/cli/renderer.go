@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/example/chess-cli/internal/chess"
+	"github.com/carlosmeds/context-engineering-chess-lab/internal/chess"
 )
 
 func RenderBoard(w io.Writer, board chess.Board) {
