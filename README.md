@@ -34,4 +34,10 @@ make vet
 make check
 ```
 
-O domínio fica em `internal/chess`, a interação de terminal em `internal/cli` e o executável em `cmd/chess`. Consulte [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) e [docs/DOMAIN.md](docs/DOMAIN.md) para detalhes.
+O domínio fica em `internal/chess`, a interação de terminal em `internal/cli` e o executável em `cmd/chess`. Consulte [arquitetura](docs/ARCHITECTURE.md) e o [índice do domínio](docs/domain/README.md) para detalhes.
+
+## Desenvolvimento assistido
+
+`CLAUDE.md` e `AGENTS.md` roteiam somente o contexto necessário. O projeto inclui agentes especializados para exploração, domínio, testes, revisão e documentação, além das skills `implement-domain-rule`, `fix-bug`, `add-cli-command`, `review-change` e `update-context`.
+
+No Claude Code, use `/implement-domain-rule descrição`; no Codex, use `$implement-domain-rule descrição`. As duas ferramentas leem o mesmo conteúdo de skill.

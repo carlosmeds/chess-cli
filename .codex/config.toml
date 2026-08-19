@@ -1,0 +1,26 @@
+[features]
+multi_agent = true
+
+[agents]
+# Codex 0.148 usa max_threads; cada papel abaixo fixa modelo e esforço.
+max_threads = 5
+
+[agents.chess_domain]
+description = "Implementa regras complexas do domínio e preserva invariantes enxadrísticas."
+config_file = "agents/chess-domain.toml"
+
+[agents.code_explorer]
+description = "Localiza código e dependências em modo somente leitura."
+config_file = "agents/code-explorer.toml"
+
+[agents.test_engineer]
+description = "Projeta casos extremos, regressões e cobertura de testes."
+config_file = "agents/test-engineer.toml"
+
+[agents.code_reviewer]
+description = "Revisa mudanças em modo somente leitura e prioriza problemas reais."
+config_file = "agents/code-reviewer.toml"
+
+[agents.context_maintainer]
+description = "Mantém documentação modular e consistente com o código validado."
+config_file = "agents/context-maintainer.toml"

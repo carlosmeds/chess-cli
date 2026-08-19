@@ -25,4 +25,14 @@ Uma jogada passa pelo parser, pelo runner e por `Game.Play`. O domínio valida g
 
 `cmd` pode depender de `cli`; `cli` pode depender de `chess`; `chess` não depende dos outros pacotes. Entrada, saída e mensagens de sessão pertencem à CLI. Estado e legalidade pertencem ao domínio.
 
-Pontos de extensão naturais são novos renderizadores em `internal/cli`, notação adicional no parser e regras de empate no domínio. Invariantes: uma partida possui um turno; jogadas aceitas são legais; domínio não faz I/O; não existe estado global mutável.
+O estado da partida fica em `Game`: tabuleiro, turno, término, alvo en passant e histórico de posições. Direitos de roque e en passant efetivo são derivados desse estado quando necessários. Veja [`docs/domain/game-state.md`](domain/game-state.md).
+
+## Estratégia de testes
+
+Regras são testadas diretamente em `internal/chess`, construindo posições explícitas quando necessário. Parser e sessão são testados em `internal/cli`; testes de runner usam leitores e buffers, sem I/O real. O fluxo recomendado é teste focado, suíte do pacote e então `make check`.
+
+## Pontos de extensão
+
+Novas regras e condições de empate pertencem ao domínio; novos comandos, renderizadores e notações pertencem à CLI. Interfaces só são introduzidas com benefício concreto. Invariantes: uma partida possui um turno; jogadas aceitas são legais; domínio não faz I/O; não existe estado global mutável.
+
+Para desenvolvimento assistido, `CLAUDE.md` roteia contexto, agentes especializados ficam em `.claude/agents` e `.codex/agents`, e skills reutilizáveis em `.claude/skills` com um link em `.codex/skills`. A política de delegação está em `AGENTS.md`.

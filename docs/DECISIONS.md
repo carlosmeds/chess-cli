@@ -62,3 +62,30 @@ Uma disposição de peças isolada não distingue posições com movimentos lega
 Representar a identidade por um valor comparável contendo os códigos das 64 casas, o jogador da vez, uma máscara dos quatro direitos de roque e a casa de en passant somente quando existe captura legal. Contar esses valores em um mapa mantido por `Game`.
 ### Consequências
 A comparação é determinística e não depende de serialização ou hash sujeito a colisões. O campo `Moved` só influencia a máscara de roque; movimentos anteriores sem efeito nas jogadas disponíveis não diferenciam posições.
+
+## ADR-008 — Histórico de repetição mantido por Game
+
+### Contexto
+A repetição depende de todas as posições aceitas da partida, mas não deve ser afetada por comandos ou tentativas inválidas.
+### Decisão
+`Game` mantém um mapa de identidade para contagem, registra posições nos construtores e após `Play` aceitar uma jogada, e recria o mapa em `Restart`.
+### Consequências
+O histórico fica no domínio e a CLI não conhece sua representação. Não há persistência nem lista de notações de movimentos.
+
+## ADR-009 — Documentação de domínio por contexto
+
+### Contexto
+Um único arquivo de regras força tarefas pequenas a carregar assuntos não relacionados.
+### Decisão
+Usar `docs/domain/README.md` como índice e dividir estado, invariantes, movimentos, términos e posições em documentos focados. Manter `docs/DOMAIN.md` como ponte compatível.
+### Consequências
+Agentes podem carregar somente o ramo relevante; índices e links precisam permanecer consistentes.
+
+## ADR-010 — Agentes especializados e skills compartilhadas
+
+### Contexto
+Exploração, implementação, testes, revisão e documentação têm necessidades diferentes de ferramentas, custo e contexto.
+### Decisão
+Definir cinco agentes equivalentes para Claude Code e Codex, com leitura restrita para exploração e revisão. Manter skills canônicas em `.claude/skills` no formato Agent Skills e expor o mesmo diretório ao Codex pelo link `.codex/skills`.
+### Consequências
+Procedimentos não são duplicados. Tarefas triviais continuam no agente principal; trabalhos que editam os mesmos arquivos são sequenciais, e o agente principal consolida toda delegação.

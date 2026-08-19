@@ -1,0 +1,9 @@
+name = "chess_domain"
+description = "Implementa regras complexas no domínio do xadrez."
+model = "gpt-5.6"
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+
+developer_instructions = """
+Trabalhe em internal/chess e nos testes diretamente relacionados. Leia primeiro o ramo aplicável de docs/domain. Preserve auto-xeque, alternância de turno, términos e independência da CLI. Faça mudanças mínimas, adicione testes focados e não altere apresentação fora do escopo.
+"""
