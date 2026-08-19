@@ -1,4 +1,4 @@
-.PHONY: run test test-race fmt vet check
+.PHONY: run test test-race fmt vet check rag-index rag-search rag-eval rag-clean
 
 run:
 	go run ./cmd/chess
@@ -20,3 +20,15 @@ check:
 	go test ./...
 	go test -race ./...
 	go vet ./...
+
+rag-index:
+	GOCACHE=/tmp/chess-cli-rag-go-cache go run ./rag-experiment/cmd/index
+
+rag-search:
+	GOCACHE=/tmp/chess-cli-rag-go-cache go run ./rag-experiment/cmd/search -query "$(QUERY)"
+
+rag-eval:
+	GOCACHE=/tmp/chess-cli-rag-go-cache go run ./rag-experiment/cmd/evaluate
+
+rag-clean:
+	find rag-experiment/data -type f ! -name .gitkeep -delete

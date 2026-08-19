@@ -1,0 +1,3 @@
+/rag-experiment/data/*
+!/rag-experiment/data/.gitkeep
+*.env

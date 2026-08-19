@@ -1,0 +1,18 @@
+{
+  "q01":["docs/domain/moves/standard-moves.md"],
+  "q02":["docs/domain/moves/castling.md"],
+  "q03":["docs/domain/moves/en-passant.md"],
+  "q04":["docs/domain/moves/promotion.md"],
+  "q05":["docs/domain/termination/checkmate.md","docs/domain/termination/stalemate.md"],
+  "q06":["docs/domain/termination/threefold-repetition.md","docs/domain/position/identity.md"],
+  "q07":["docs/domain/position/identity.md"],
+  "q08":["docs/domain/position/identity.md"],
+  "q09":["docs/ARCHITECTURE.md"],
+  "q10":["docs/DECISIONS.md","docs/ARCHITECTURE.md"],
+  "q11":["docs/domain/moves/standard-moves.md","docs/domain/invariants.md"],
+  "q12":["docs/TESTING.md"],
+  "q13":["docs/TESTING.md"],
+  "q14":["docs/domain/moves/castling.md"],
+  "q15":["docs/DECISIONS.md"],
+  "q16":[],"q17":[],"q18":[]
+}

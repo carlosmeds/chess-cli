@@ -1,0 +1,11 @@
+# This parser intentionally supports scalar values only; corpus paths are fixed to the approved scope.
+embedding_provider: local-hash # local-hash or none
+embedding_dimensions: 256
+candidate_limit: 20
+result_limit: 6
+token_budget: 1400
+rrf_k: 60
+minimum_recall: 0.90
+minimum_token_reduction: 0.60
+index_path: rag-experiment/data/index.json
+report_path: rag-experiment/data/report.md
