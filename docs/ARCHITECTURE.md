@@ -17,7 +17,9 @@ flowchart LR
   Renderer --> Output[stdout]
 ```
 
-Uma jogada passa pelo parser, pelo runner e por `Game.Play`. O domínio valida geometria, ocupação, regras especiais e uma cópia simulada contra auto-xeque; só então atualiza o tabuleiro, troca o turno e calcula o estado final.
+Uma jogada passa pelo parser, pelo runner e por `Game.Play`. O domínio valida geometria, ocupação, regras especiais e uma cópia simulada contra auto-xeque; só então atualiza o tabuleiro, troca o turno e calcula o estado final, incluindo o registro da nova posição.
+
+`Game` mantém, no domínio, um mapa de identidades comparáveis para contagem de repetições. Os construtores registram a posição inicial, `Play` registra somente jogadas aceitas e `Restart` substitui a partida por uma nova contagem. Comandos de apresentação da CLI não passam por esse histórico.
 
 ## Dependências e limites
 

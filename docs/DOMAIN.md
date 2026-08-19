@@ -1,10 +1,12 @@
 # Domínio e regras
 
-`Position` usa arquivo `a`–`h` e fileira `1`–`8`, armazenados internamente como índices zero-based. `Board` contém 64 casas. `Piece` tem tipo, cor e indicador de movimento. `Move` contém origem, destino e promoção opcional. `Game` mantém tabuleiro, turno, estado e alvo temporário de en passant.
+`Position` usa arquivo `a`–`h` e fileira `1`–`8`, armazenados internamente como índices zero-based. `Board` contém 64 casas. `Piece` tem tipo, cor e indicador de movimento. `Move` contém origem, destino e promoção opcional. `Game` mantém tabuleiro, turno, estado, alvo temporário de en passant e contagem das posições ocorridas.
 
 Peões avançam na direção da cor, podem avançar duas casas desde a origem e capturam na diagonal. Cavalos movem em L. Bispos usam diagonais, torres linhas, damas ambos e reis uma casa. Peças deslizantes exigem caminho livre; destino aliado é proibido. Toda jogada é simulada e rejeitada se o rei do jogador permanecer atacado.
 
 Xeque ocorre quando a casa do rei é atacada. Sem jogadas legais, há xeque-mate se o rei está em xeque e afogamento caso contrário.
+
+Empate por repetição tripla ocorre na terceira aparição da mesma posição. A comparação considera peças e casas, jogador da vez, direitos de roque e possibilidade efetiva de captura en passant. O indicador genérico de movimento das demais peças, o histórico de jogadas e contadores externos não fazem parte da identidade. A posição inicial e o resultado de cada jogada válida são registrados; reiniciar a partida descarta a contagem anterior.
 
 - Roque: rei e torre não moveram, caminho livre, rei fora de xeque e nenhuma casa atravessada atacada. Entrada: `e1 g1`, `e1 c1`, `e8 g8` ou `e8 c8`.
 - Promoção: ao chegar à última fileira, o peão deve virar dama, torre, bispo ou cavalo: `e7 e8 q`.

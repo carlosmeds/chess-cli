@@ -53,3 +53,12 @@ O projeto não necessita framework ou parser externo.
 Não adicionar dependências externas sem necessidade e ADR novos.
 ### Consequências
 Build simples, pequeno e reproduzível.
+
+## ADR-007 — Identidade estrutural para repetição de posição
+
+### Contexto
+Uma disposição de peças isolada não distingue posições com movimentos legais diferentes por turno, roque ou en passant.
+### Decisão
+Representar a identidade por um valor comparável contendo os códigos das 64 casas, o jogador da vez, uma máscara dos quatro direitos de roque e a casa de en passant somente quando existe captura legal. Contar esses valores em um mapa mantido por `Game`.
+### Consequências
+A comparação é determinística e não depende de serialização ou hash sujeito a colisões. O campo `Moved` só influencia a máscara de roque; movimentos anteriores sem efeito nas jogadas disponíveis não diferenciam posições.

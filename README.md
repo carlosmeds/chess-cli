@@ -23,7 +23,7 @@ pretas> e7 e5
 brancas> g1 f3
 ```
 
-Comandos disponíveis: `help`, `board`, `restart` e `quit` (também aceita `exit`). O jogo valida movimentos, capturas, xeque e auto-xeque; detecta xeque-mate e afogamento; e suporta roque, promoção e en passant.
+Comandos disponíveis: `help`, `board`, `restart` e `quit` (também aceita `exit`). O jogo valida movimentos, capturas, xeque e auto-xeque; detecta xeque-mate, afogamento e empate por repetição tripla; e suporta roque, promoção e en passant.
 
 ## Qualidade
 

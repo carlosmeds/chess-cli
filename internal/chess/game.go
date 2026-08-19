@@ -8,6 +8,7 @@ const (
 	InProgress Status = iota
 	Checkmate
 	Stalemate
+	ThreefoldRepetition
 )
 
 type Game struct {
@@ -15,12 +16,19 @@ type Game struct {
 	turn            Color
 	status          Status
 	enPassantTarget *Position
+	positions       map[positionKey]uint8
 }
 
-func NewGame() *Game { return &Game{board: NewBoard(), turn: White} }
+func NewGame() *Game { return newGame(NewBoard(), White) }
 
 // NewGameWithBoard creates a game at a deliberate position, primarily for tests.
-func NewGameWithBoard(board Board, turn Color) *Game { return &Game{board: board, turn: turn} }
+func NewGameWithBoard(board Board, turn Color) *Game { return newGame(board, turn) }
+
+func newGame(board Board, turn Color) *Game {
+	g := &Game{board: board, turn: turn, positions: make(map[positionKey]uint8)}
+	g.recordPosition()
+	return g
+}
 
 func (g *Game) Board() Board             { return g.board }
 func (g *Game) Turn() Color              { return g.turn }
@@ -44,6 +52,9 @@ func (g *Game) Play(move Move) error {
 		} else {
 			g.status = Stalemate
 		}
+	}
+	if g.recordPosition() >= 3 && g.status == InProgress {
+		g.status = ThreefoldRepetition
 	}
 	return nil
 }

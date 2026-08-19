@@ -56,6 +56,8 @@ func (r *Runner) Run() error {
 				fmt.Fprintf(r.out, "Xeque-mate! %s vencem. Use 'restart' ou 'quit'.\n", r.game.Turn().Opponent())
 			case chess.Stalemate:
 				fmt.Fprintln(r.out, "Afogamento: empate. Use 'restart' ou 'quit'.")
+			case chess.ThreefoldRepetition:
+				fmt.Fprintln(r.out, "Empate por repetição tripla de posição. Use 'restart' ou 'quit'.")
 			default:
 				if r.game.InCheck(r.game.Turn()) {
 					fmt.Fprintf(r.out, "Xeque às %s!\n", r.game.Turn())
